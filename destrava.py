@@ -149,7 +149,8 @@ GPIO.output(ledOk, GPIO.LOW) # LED pin set as output
 
 i = 0;
 
-mo = 0;
+mo = 8;
+w = 0;
 while 1:
 	if not GPIO.input(in1) or i == 200:
 		GPIO.output(pin1, GPIO.HIGH) # LED pin set as output
@@ -157,9 +158,15 @@ while 1:
 		imprimeX()
 		sys.exit(0)
 	imprimeSeta(mo)
-	if mo < 15:
-		mo = mo + 1;
+	if mo == 8:
+		if w == 2:
+			mo = mo + 1
+		w = w + 1
 	else:
-		mo = 0
+		if mo < 15:
+			mo = mo + 1;
+		else:
+			mo = 0
+			w = 0;
 	i = i + 1;
-	time.sleep(0.07)
+	time.sleep(0.05)
