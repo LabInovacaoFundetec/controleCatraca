@@ -5,10 +5,7 @@ import time, sys
 import max7219.led as led
 
 # Pin Definitons:
-pin1 = 14 
-pin2 = 15
-pin3 = 18
-pin4 = 17
+pin1 = 14
 in1 = 27
 ledOk = 22
 
@@ -133,18 +130,10 @@ GPIO.setwarnings(False)
 # Pin Setup:
 GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
 GPIO.setup(pin1, GPIO.OUT)
-GPIO.setup(pin2, GPIO.OUT)
-GPIO.setup(pin3, GPIO.OUT)
-GPIO.setup(pin4, GPIO.OUT) 
-GPIO.setup(ledOk, GPIO.OUT) 
 GPIO.setup(in1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 GPIO.output(pin1, GPIO.LOW) # LED pin set as output
-GPIO.output(pin2, GPIO.HIGH) # LED pin set as output
-GPIO.output(pin3, GPIO.HIGH) # LED pin set as output
-GPIO.output(pin4, GPIO.HIGH) # LED pin set as output
-GPIO.output(ledOk, GPIO.LOW) # LED pin set as output
 
 
 i = 0;
@@ -153,9 +142,10 @@ mo = 8;
 w = 0;
 while 1:
 	if not GPIO.input(in1) or i == 200:
-		GPIO.output(pin1, GPIO.HIGH) # LED pin set as output
-		GPIO.output(ledOk, GPIO.HIGH) # LED pin set as output
 		imprimeX()
+		time.sleep(1)
+		GPIO.output(pin1, GPIO.HIGH) # LED pin set as output
+		time.sleep(1)
 		sys.exit(0)
 	imprimeSeta(mo)
 	if mo == 8:
