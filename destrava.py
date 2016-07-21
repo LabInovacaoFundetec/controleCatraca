@@ -143,7 +143,7 @@ w = 0;
 while 1:
 	if not GPIO.input(in1) or i == 200:
 		imprimeX()
-		time.sleep(1)
+		time.sleep(2)
 		GPIO.output(pin1, GPIO.HIGH) # LED pin set as output
 		time.sleep(1)
 		sys.exit(0)
@@ -159,4 +159,4 @@ while 1:
 			mo = 0
 			w = 0;
 	i = i + 1;
-	time.sleep(0.05)
+	time.sleep(0.08)

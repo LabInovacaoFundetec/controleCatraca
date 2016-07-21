@@ -11,6 +11,12 @@ GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
 GPIO.setup(pin1, GPIO.OUT)
 
 
+def limpaTela():
+        for j in range(8):
+                for k in range(8):
+                        matrix.pixel(k,j,0,False)
+
+
 def imprimeX():
 	limpaTela()
 	l = 7;
@@ -21,11 +27,6 @@ def imprimeX():
 		else:
 			matrix.pixel(l,i,1)
 		l = l-1
-
-def limpaTela():
-	for j in range(8):
-		for k in range(8):
-			matrix.pixel(k,j,0,False)
 
 
 matrix = led.matrix()
