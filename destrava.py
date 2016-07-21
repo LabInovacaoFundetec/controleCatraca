@@ -140,12 +140,14 @@ i = 0;
 
 mo = 8;
 w = 0;
+botaoR = 0;
 while 1:
-	if not GPIO.input(in1) or i == 200:
+	if not GPIO.input(in1):
+		botaoR = 1;
+	if (botaoR == 1 and GPIO.input(in1)) or i == 200:
 		imprimeX()
-		time.sleep(2)
 		GPIO.output(pin1, GPIO.HIGH) # LED pin set as output
-		time.sleep(1)
+		time.sleep(0.5)
 		sys.exit(0)
 	imprimeSeta(mo)
 	if mo == 8:
