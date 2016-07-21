@@ -42,4 +42,4 @@ if retorno.status_code == 200 :
 		GPIO.output(pin1, GPIO.HIGH)
 		limpaTela()
 else:
-	GPIO.output(pin1, GPIO.HIGH)
+	GPIO.output(pin1, GPIO.LOW)
